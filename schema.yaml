@@ -1,0 +1,72 @@
+dataset: customer_care_emails
+primary_key: email_key
+columns:
+  - name: email_key
+    type: string
+    nullable: false
+    derived: true
+  - name: subject
+    type: string
+    nullable: false
+  - name: sender
+    type: string
+    nullable: false
+  - name: receiver
+    type: string
+    nullable: false
+  - name: timestamp
+    type: string
+    nullable: false
+  - name: message_body
+    type: string
+    nullable: false
+  - name: thread_id
+    type: string
+    nullable: false
+  - name: email_types
+    type: list
+    nullable: false
+    allowed:
+      - inquiry
+      - issue
+      - suggestion
+      - other matter
+  - name: email_status
+    type: string
+    nullable: false
+    allowed:
+      - ongoing
+      - completed
+  - name: email_criticality
+    type: string
+    nullable: false
+    allowed:
+      - low
+      - medium
+      - high
+  - name: product_types
+    type: list
+    nullable: false
+  - name: agent_effectivity
+    type: string
+    nullable: false
+    allowed:
+      - very low
+      - low
+      - medium
+      - high
+      - very high
+  - name: agent_efficiency
+    type: string
+    nullable: false
+    allowed:
+      - very low
+      - low
+      - medium
+      - high
+      - very high
+  - name: customer_satisfaction
+    type: float
+    nullable: false
+    min: -1.0
+    max: 1.0

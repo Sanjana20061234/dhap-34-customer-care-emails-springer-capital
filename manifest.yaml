@@ -1,0 +1,6 @@
+name: customer_care_emails
+source_url: https://huggingface.co/datasets/rtweera/customer_care_emails
+license: gpl-3.0
+row_count: 2259
+csv_checksum: 5d56efd79e36d59699679abf55e85aa6ebcb75c870dc9b4920690c470d9eb963
+status: done

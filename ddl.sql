@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS customer_care_emails (
+    email_key VARCHAR(64) PRIMARY KEY,
+    subject TEXT NOT NULL,
+    sender TEXT NOT NULL,
+    receiver TEXT NOT NULL,
+    timestamp TIMESTAMPTZ NOT NULL,
+    message_body TEXT NOT NULL,
+    thread_id TEXT NOT NULL,
+    email_types TEXT[] NOT NULL,
+    email_status TEXT NOT NULL,
+    email_criticality TEXT NOT NULL,
+    product_types TEXT[] NOT NULL,
+    agent_effectivity TEXT NOT NULL,
+    agent_efficiency TEXT NOT NULL,
+    customer_satisfaction DOUBLE PRECISION NOT NULL,
+    CONSTRAINT check_email_status CHECK (email_status IN ('ongoing', 'completed')),
+    CONSTRAINT check_email_criticality CHECK (email_criticality IN ('low', 'medium', 'high')),
+    CONSTRAINT check_agent_effectivity CHECK (agent_effectivity IN ('very low', 'low', 'medium', 'high', 'very high')),
+    CONSTRAINT check_agent_efficiency CHECK (agent_efficiency IN ('very low', 'low', 'medium', 'high', 'very high')),
+    CONSTRAINT check_customer_satisfaction CHECK (customer_satisfaction >= -1.0 AND customer_satisfaction <= 1.0)
+);
