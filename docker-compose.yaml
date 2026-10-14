@@ -10,7 +10,9 @@ x-airflow-common: &airflow-common
     _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-pandas pyyaml}
   volumes:
     - ./dags:/opt/airflow/dags
-    - .:/opt/airflow/project:ro
+    - ./customer_care_emails.csv:/opt/airflow/project/customer_care_emails.csv:ro
+    - ./manifest.yaml:/opt/airflow/project/manifest.yaml:ro
+    - ./schema.yaml:/opt/airflow/project/schema.yaml:ro
   user: "${AIRFLOW_UID:-50000}:0"
 
 services:
